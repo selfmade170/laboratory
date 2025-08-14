@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Интерактивная лабораторная: Состав почвы</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="lab-container">
+
+        <!-- Этап 1: Гипотеза -->
+        <section id="step-1" class="lab-section">
+            <h1>Лабораторная работа: Состав почвы</h1>
+            <h2>Этап 1: Гипотеза</h2>
+            <p>Отметьте компоненты, которые, по вашему мнению, входят в состав почвы.</p>
+            <div id="hypothesis-checkboxes" class="checkbox-group">
+                <label><input type="checkbox" name="hypothesis" value="Вода"> Вода</label>
+                <label><input type="checkbox" name="hypothesis" value="Воздух"> Воздух</label>
+                <label><input type="checkbox" name="hypothesis" value="Песок"> Песок</label>
+                <label><input type="checkbox" name="hypothesis" value="Глина"> Глина</label>
+                <label><input type="checkbox" name="hypothesis" value="Перегной (гумус)"> Перегной (гумус)</label>
+            </div>
+            <div class="button-group">
+                <button id="start-exp-btn" class="button">Начать опыты</button>
+            </div>
+        </section>
+
+        <!-- Этап 2: Опыт с воздухом -->
+        <section id="step-2" class="lab-section hidden">
+            <h2>Этап 2: Опыт 1 (Обнаружение воздуха)</h2>
+            <p>Опустим комочек сухой почвы в стакан с водой и понаблюдаем.</p>
+            <img id="exp1-img" src="assets/images/1.jpg" alt="Комок почвы перед погружением в воду" class="experiment-image">
+            <p><b>Что доказывают пузырьки, которые выделяются из почвы?</b></p>
+            <div class="checkbox-group">
+                 <label><input type="radio" name="exp1-question" value="Наличие воды"> Наличие воды</label>
+                 <label><input type="radio" name="exp1-question" value="Наличие воздуха"> Наличие воздуха</label>
+                 <label><input type="radio" name="exp1-question" value="Наличие песка"> Наличие песка</label>
+            </div>
+            <div class="button-group">
+                <button id="run-exp1-btn" class="button">Опустить комочек</button>
+                <button id="next-to-exp2-btn" class="button" disabled>Далее</button>
+            </div>
+        </section>
+
+        <!-- Этап 3: Опыт с водой -->
+        <section id="step-3" class="lab-section hidden">
+            <h2>Этап 3: Опыт 2 (Обнаружение воды)</h2>
+            <p>Будем нагревать немного почвы на металлической ложечке, держа над ней холодное стекло.</p>
+            <img id="exp2-img" src="assets/images/2.jpg" alt="Почва на ложечке перед нагревом" class="experiment-image">
+            <p><b>Что доказывают капли, появившиеся на холодном стекле?</b></p>
+            <div class="checkbox-group">
+                 <label><input type="radio" name="exp2-question" value="Наличие воздуха"> Наличие воздуха</label>
+                 <label><input type="radio" name="exp2-question" value="Наличие глины"> Наличие глины</label>
+                 <label><input type="radio" name="exp2-question" value="Наличие воды"> Наличие воды</label>
+            </div>
+            <div class="button-group">
+                <button id="run-exp2-btn" class="button">Нагреть почву</button>
+                <button id="next-to-exp3-btn" class="button" disabled>Далее</button>
+            </div>
+        </section>
+
+        <!-- Этап 4: Опыт с песком и глиной -->
+        <section id="step-4" class="lab-section hidden">
+            <h2>Этап 4: Опыт 3 (Обнаружение песка и глины)</h2>
+            <p>Размешаем почву в банке с водой и дадим ей отстояться в течение некоторого времени.</p>
+            <img id="exp3-img" src="assets/images/3.jpg" alt="Почва и вода в банке" class="experiment-image">
+            <p><b>Что доказывают слои, образовавшиеся на дне банки?</b></p>
+            <div class="checkbox-group">
+                 <label><input type="radio" name="exp3-question" value="Наличие воздуха и воды"> Наличие воздуха и воды</label>
+                 <label><input type="radio" name="exp3-question" value="Наличие песка и глины"> Наличие песка и глины</label>
+                 <label><input type="radio" name="exp3-question" value="Наличие перегноя"> Наличие перегноя</label>
+            </div>
+            <div class="button-group">
+                <button id="run-exp3-btn" class="button">Подождать</button>
+                <button id="next-to-conclusion-btn" class="button" disabled>К выводам</button>
+            </div>
+        </section>
+
+        <!-- Этап 5: Выводы -->
+        <section id="step-5" class="lab-section hidden">
+            <h2>Этап 5: Итоги и вывод</h2>
+            <div class="results-summary">
+                <p><b>Ваша первоначальная гипотеза:</b></p>
+                <p id="hypothesis-result">Не определена.</p>
+            </div>
+            <div class="results-summary">
+                <p><b>Опыты показали наличие в почве:</b></p>
+                <p id="experiments-result">Ничего не было обнаружено.</p>
+            </div>
+            <p>Сравните вашу гипотезу с результатами опытов и сформулируйте итоговый вывод.</p>
+            <textarea id="conclusion-text" placeholder="Например: В состав почвы действительно входят..."></textarea>
+            <div class="button-group">
+                <button onclick="location.reload()" class="button secondary">Пройти заново</button>
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const state = {
+                hypothesis: [],
+                provenComponents: new Set()
+            };
+
+            const sections = document.querySelectorAll('.lab-section');
+            const startBtn = document.getElementById('start-exp-btn');
+            const hypothesisCheckboxes = document.querySelectorAll('input[name="hypothesis"]');
+
+            const runExp1Btn = document.getElementById('run-exp1-btn');
+            const exp1Img = document.getElementById('exp1-img');
+            const nextToExp2Btn = document.getElementById('next-to-exp2-btn');
+            const exp1Question = document.querySelectorAll('input[name="exp1-question"]');
+
+            const runExp2Btn = document.getElementById('run-exp2-btn');
+            const exp2Img = document.getElementById('exp2-img');
+            const nextToExp3Btn = document.getElementById('next-to-exp3-btn');
+            const exp2Question = document.querySelectorAll('input[name="exp2-question"]');
+
+            const runExp3Btn = document.getElementById('run-exp3-btn');
+            const exp3Img = document.getElementById('exp3-img');
+            const nextToConclusionBtn = document.getElementById('next-to-conclusion-btn');
+            const exp3Question = document.querySelectorAll('input[name="exp3-question"]');
+
+            const hypothesisResult = document.getElementById('hypothesis-result');
+            const experimentsResult = document.getElementById('experiments-result');
+
+            function showSection(sectionId) {
+                sections.forEach(section => section.classList.add('hidden'));
+                document.getElementById(sectionId).classList.remove('hidden');
+            }
+
+            startBtn.addEventListener('click', () => {
+                state.hypothesis = Array.from(hypothesisCheckboxes)
+                    .filter(cb => cb.checked)
+                    .map(cb => cb.value);
+                showSection('step-2');
+            });
+
+            runExp1Btn.addEventListener('click', () => {
+                exp1Img.src = 'assets/images/4.jpg';
+                exp1Img.alt = 'Из комка почвы в воде выходят пузырьки воздуха';
+                runExp1Btn.disabled = true;
+                nextToExp2Btn.disabled = false;
+            });
+
+            exp1Question.forEach(radio => radio.addEventListener('change', (e) => {
+                if(e.target.value === 'Наличие воздуха' && e.target.checked) {
+                    state.provenComponents.add('Воздух');
+                } else {
+                    state.provenComponents.delete('Воздух');
+                }
+            }));
+
+            nextToExp2Btn.addEventListener('click', () => showSection('step-3'));
+
+            runExp2Btn.addEventListener('click', () => {
+                exp2Img.src = 'assets/images/5.jpg';
+                exp2Img.alt = 'Над нагреваемой почвой на стекле образовался конденсат';
+                runExp2Btn.disabled = true;
+                nextToExp3Btn.disabled = false;
+            });
+
+            exp2Question.forEach(radio => radio.addEventListener('change', (e) => {
+                if(e.target.value === 'Наличие воды' && e.target.checked) {
+                    state.provenComponents.add('Вода');
+                } else {
+                    state.provenComponents.delete('Вода');
+                }
+            }));
+
+            nextToExp3Btn.addEventListener('click', () => showSection('step-4'));
+
+            runExp3Btn.addEventListener('click', () => {
+                exp3Img.src = 'assets/images/6.jpg';
+                exp3Img.alt = 'В банке с водой почва осела, образовав слои песка и глины';
+                runExp3Btn.disabled = true;
+                nextToConclusionBtn.disabled = false;
+            });
+
+            exp3Question.forEach(radio => radio.addEventListener('change', (e) => {
+                if(e.target.value === 'Наличие песка и глины' && e.target.checked) {
+                    state.provenComponents.add('Песок');
+                    state.provenComponents.add('Глина');
+                } else {
+                    state.provenComponents.delete('Песок');
+                    state.provenComponents.delete('Глина');
+                }
+            }));
+
+            nextToConclusionBtn.addEventListener('click', () => {
+                if (state.hypothesis.length > 0) {
+                    hypothesisResult.textContent = state.hypothesis.join(', ') + '.';
+                } else {
+                    hypothesisResult.textContent = 'Вы не выдвинули предположений.';
+                }
+
+                if (state.provenComponents.size > 0) {
+                    experimentsResult.textContent = Array.from(state.provenComponents).join(', ') + '.';
+                } else {
+                    experimentsResult.textContent = 'Согласно вашим ответам, ничего не было обнаружено.';
+                }
+                
+                showSection('step-5');
+            });
+        });
+    </script>
+</body>
+</html>

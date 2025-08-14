@@ -1,0 +1,155 @@
+/* Общие стили для страницы */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: #f0f4f8;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  /* Контейнер для лабораторной работы */
+  #lab-container {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 700px;
+    overflow: hidden;
+  }
+  
+  /* Стили для секций (этапов) */
+  .lab-section {
+    padding: 30px 40px;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  .lab-section:last-child {
+    border-bottom: none;
+  }
+  
+  /* Скрытие неактивных секций */
+  .hidden {
+    display: none;
+  }
+  
+  /* Заголовки */
+  h1, h2 {
+    color: #1a237e;
+    margin-top: 0;
+  }
+  h1 {
+    font-size: 1.8rem;
+    text-align: center;
+  }
+  h2 {
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+  }
+  
+  /* Текст и параграфы */
+  p {
+    line-height: 1.6;
+    margin-bottom: 15px;
+  }
+  
+  /* Изображения для опытов */
+  .experiment-image {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 8px;
+    margin: 20px auto;
+    display: block;
+    border: 1px solid #ddd;
+    background-color: #fafafa;
+  }
+  
+  /* Элементы формы (чек-боксы/радио) */
+  .checkbox-group label {
+    display: block;
+    margin-bottom: 12px;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  .checkbox-group input {
+    margin-right: 10px;
+  }
+  
+  /* Кнопки */
+  .button-group {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+  }
+  
+  .button {
+    background-color: #3f51b5;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    flex-grow: 1;
+  }
+  .button:hover {
+    background-color: #303f9f;
+    transform: translateY(-2px);
+  }
+  .button.secondary {
+    background-color: #6c757d;
+  }
+  .button.secondary:hover {
+    background-color: #5a6268;
+  }
+  .button:disabled {
+    background-color: #c5cae9;
+    cursor: not-allowed;
+  }
+  
+  /* Поле для вывода */
+  #conclusion-text {
+    width: 100%;
+    height: 120px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    resize: vertical;
+  }
+  
+  /* Стили для результатов */
+  .results-summary {
+    background-color: #e8eaf6;
+    border-left: 4px solid #3f51b5;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+  }
+  
+  /* Адаптивность */
+  @media (max-width: 600px) {
+    body {
+      padding: 10px;
+    }
+    .lab-section {
+      padding: 20px;
+    }
+    h1 {
+      font-size: 1.5rem;
+    }
+    h2 {
+      font-size: 1.2rem;
+    }
+    .button-group {
+      flex-direction: column;
+    }
+  }
+  
